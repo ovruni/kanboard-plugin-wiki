@@ -39,7 +39,7 @@ class WikiEventJob extends BaseJob
             ->buildEventWiki($wikiPage);
 
         if ($event !== null) {
-            $this->dispatcher->dispatch($eventName, $event);
+            $this->dispatcher->dispatch($event, $eventName);
 
             // if ($eventName === Wiki::EVENT_CREATE) {
             //     $userMentionJob = $this->userMentionJob->withParams($event['comment']['comment'], Wiki::EVENT_USER_MENTION, $event);
@@ -55,7 +55,7 @@ class WikiEventJob extends BaseJob
             ->buildEvent();
 
         if ($event !== null) {
-            $this->dispatcher->dispatch($eventName, $event);
+            $this->dispatcher->dispatch($event, $eventName);
 
             // if ($eventName === Wiki::EVENT_CREATE) {
             //     $userMentionJob = $this->userMentionJob->withParams($event['comment']['comment'], Wiki::EVENT_USER_MENTION, $event);
